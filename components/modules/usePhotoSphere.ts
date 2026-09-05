@@ -22,7 +22,7 @@ export function hotspotMarkers(hotspots: Hotspot[]): MarkerConfig[] {
  * Wraps @photo-sphere-viewer/core + markers plugin.
  * Creates the viewer once per container, swaps panoramas with a cross-fade, exposes yaw and load progress.
  */
-export function usePhotoSphere(container: RefObject<HTMLDivElement>, panorama: string, hotspots: Hotspot[], onHotspot: (to: string) => void) {
+export function usePhotoSphere(container: RefObject<HTMLDivElement | null>, panorama: string, hotspots: Hotspot[], onHotspot: (to: string) => void) {
   const viewerRef = useRef<Viewer | null>(null);
   const markersRef = useRef<MarkersPlugin | null>(null);
   const hotspotCb = useRef(onHotspot);
@@ -79,6 +79,11 @@ export function usePhotoSphere(container: RefObject<HTMLDivElement>, panorama: s
       .catch(() => {});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [panorama, ready]);
+
+  useEffect(() => {
+    if (!ready) return;
+    markersRef.current?.setMarkers(hotspotMarkers(hotspots));
+  }, [hotspots, ready]);
 
   return { yaw, progress, ready, viewerRef };
 }

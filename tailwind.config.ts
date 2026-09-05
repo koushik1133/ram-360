@@ -8,9 +8,9 @@ const config: Config = {
         ink: '#0A0A0A',
         panel: '#121212',
         line: '#232323',
-        accent: '#3B82F6',
-        pin: '#FF2D78',
-        ring: '#22C55E',
+        accent: '#C4A057',
+        pin: '#C4A057',
+        ring: '#3d8f62',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],

@@ -4,6 +4,7 @@ import { Virtuoso, type VirtuosoHandle } from 'react-virtuoso';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAppStore } from '@/store/useAppStore';
 import { project, floorLabel, STATUS_COLOR } from '@/lib/data';
+import { SFT_COLOR, UNIT_SQFTS } from '@/lib/palette';
 import type { Flat } from '@/lib/types';
 
 export default function InventoryPanel() {
@@ -19,7 +20,8 @@ export default function InventoryPanel() {
   const search = useAppStore((s) => s.search);
   const setSearch = useAppStore((s) => s.setSearch);
   const bhk = useAppStore((s) => s.bhkFilter);
-  const setBhk = useAppStore((s) => s.setBhkFilter);
+  const sqftFilter = useAppStore((s) => s.sqftFilter);
+  const setSqftFilter = useAppStore((s) => s.setSqftFilter);
   const statusFilter = useAppStore((s) => s.statusFilter);
   const listRef = useRef<VirtuosoHandle>(null);
 
@@ -30,15 +32,16 @@ export default function InventoryPanel() {
     const q = search.trim().toLowerCase().replace(/\s+/g, '');
     if (q && !f.id.toLowerCase().replace('-', '').includes(q.replace('-', '')) && !`${floorLabel(f.floor)}${f.flatNo}`.toLowerCase().includes(q)) return false;
     if (bhk && f.bhk !== bhk) return false;
+    if (sqftFilter && f.sqft !== sqftFilter) return false;
     if (statusFilter && statuses[f.id] !== statusFilter) return false;
     return true;
   };
-  const filtering = !!search.trim() || !!bhk || !!statusFilter;
+  const filtering = !!search.trim() || !!bhk || !!sqftFilter || !!statusFilter;
   const floors = useMemo(() => {
     const all = Array.from({ length: tower.floors + 1 }, (_, i) => tower.floors - i);
     return filtering ? all.filter((fl) => flats.some((f) => f.floor === fl && matches(f))) : all;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tower.floors, flats, search, bhk, statusFilter, statuses]);
+  }, [tower.floors, flats, search, bhk, sqftFilter, statusFilter, statuses]);
 
   const counts = { available: 0, sold: 0, reserved: 0 } as Record<string, number>;
   flats.forEach((f) => { counts[statuses[f.id]] = (counts[statuses[f.id]] ?? 0) + 1; });
@@ -76,9 +79,12 @@ export default function InventoryPanel() {
           <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
           <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search flat · e.g. 1203 or T2-1203" className="w-full rounded-xl border border-white/10 bg-black/40 py-2.5 pl-9 pr-3 text-[13px] outline-none placeholder:text-neutral-600 focus:border-accent" />
         </div>
-        <div className="flex gap-1.5">
-          {[null, 2, 3, 4].map((b) => (
-            <button key={String(b)} onClick={() => setBhk(b)} className={`rounded-full px-3 py-1 text-[10px] font-bold tracking-[0.18em] transition ${bhk === b ? 'bg-accent text-white' : 'bg-white/10 text-neutral-300'}`}>{b ? `${b} BHK` : 'ALL'}</button>
+        <div className="flex flex-wrap gap-1.5">
+          <button onClick={() => setSqftFilter(null)} className={`rounded-full px-3 py-1 text-[10px] font-bold tracking-[0.18em] transition ${sqftFilter === null ? 'bg-white text-black' : 'bg-white/10 text-neutral-300'}`}>ALL SFT</button>
+          {UNIT_SQFTS.map((sqft) => (
+            <button key={sqft} onClick={() => setSqftFilter(sqftFilter === sqft ? null : sqft)} className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold tracking-[0.14em] transition ${sqftFilter === sqft ? 'bg-white text-black' : 'bg-white/10 text-neutral-300'}`}>
+              <span className="h-2 w-2 rounded-[2px]" style={{ background: SFT_COLOR[sqft] }} />{sqft}
+            </button>
           ))}
         </div>
       </div>
@@ -105,7 +111,7 @@ export default function InventoryPanel() {
                       <span className="text-[12px] font-semibold tracking-wide">{floor === 0 ? 'Ground floor' : `Floor ${floor}`}</span>
                     </span>
                     <span className="flex items-center gap-2">
-                      <span className="flex gap-1">{rows.map((f) => <span key={f.id} className="h-1.5 w-1.5 rounded-full" style={{ background: STATUS_COLOR[statuses[f.id]] }} />)}</span>
+                      <span className="flex gap-1">{rows.map((f) => <span key={f.id} className="h-1.5 w-1.5 rounded-[2px]" style={{ background: SFT_COLOR[f.sqft] }} title={`${f.flatNo} · ${f.sqft} SFT`} />)}</span>
                       <span className={`text-[10px] tracking-[0.15em] ${open ? 'text-neutral-600' : 'text-neutral-400'}`}>{avail}/{rows.length}</span>
                     </span>
                   </button>
@@ -119,9 +125,10 @@ export default function InventoryPanel() {
                             return (
                               <div key={f.id} className={`flex items-center gap-2 rounded-xl border px-3 py-2 transition ${sel ? 'border-accent bg-accent/15' : 'border-white/5 bg-black/30 hover:border-white/15'}`}>
                                 <button onClick={() => selectFlat(f.id)} className="flex flex-1 items-center gap-3 text-left">
+                                  <span className="h-3 w-3 rounded-[3px] border border-white/10" style={{ background: SFT_COLOR[f.sqft] }} />
                                   <span className="text-[12px] font-bold">Flat {f.flatNo}</span>
                                   <span className="text-[11px] text-neutral-300">{f.bhk} BHK</span>
-                                  <span className="text-[11px] text-neutral-400">{f.sqft} sqft</span>
+                                  <span className="text-[11px] text-neutral-400">{f.sqft} SFT</span>
                                   <span className="text-[11px] text-neutral-400">{f.facing[0]}</span>
                                   <span className="ml-auto flex items-center gap-1.5 text-[10px] font-semibold capitalize" style={{ color: STATUS_COLOR[st] }}><span className="h-2 w-2 rounded-full" style={{ background: STATUS_COLOR[st] }} />{st}</span>
                                 </button>

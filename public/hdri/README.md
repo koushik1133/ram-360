@@ -1,1 +1,3 @@
-Optional: drop an equirectangular sky.hdr (1k-2k) here for true HDRI lighting; otherwise a procedural studio environment is used.
+Local Radiance HDRIs (Poly Haven, CC0):
+- sky.hdr — venice_sunset_1k
+- interior.hdr — studio_small_08_1k

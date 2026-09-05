@@ -5,7 +5,7 @@
 :root {
   color-scheme: dark;
   --ink: #0a0a0a;
-  --accent: #3b82f6;
+  --accent: #c4a057;
 }
 
 html, body { height: 100%; overscroll-behavior: none; }
@@ -61,14 +61,14 @@ body {
 .psv-hotspot span { font-size: 10px; letter-spacing: .12em; }
 
 /* Floor plan */
-.plan-svg { width: 100%; height: 100%; }
+.plan-svg, .apartment-plan { width: 100%; height: 100%; }
 .plan-svg .flat { fill: #1c1c1c; stroke: #4b4b4b; stroke-width: 2; cursor: pointer; transition: fill .2s ease; }
 .plan-svg .flat:hover { fill: #262626; }
-.plan-svg .flat.selected { fill: url(#hatch); stroke: #3b82f6; stroke-width: 3; }
+.plan-svg .flat.selected { fill: url(#hatch); stroke: #c4a057; stroke-width: 3; }
 .plan-svg .flat-label { fill: #9a9a9a; font-size: 18px; font-weight: 600; pointer-events: none; }
 .plan-svg .furniture { fill: none; stroke: #6b6b6b; stroke-width: 1.5; pointer-events: none; }
-.plan-svg .dims { stroke: #3b82f6; stroke-width: 1; fill: #3b82f6; font-size: 11px; }
-.plan-svg .hidden-layer { display: none; }
+.plan-svg .dims { stroke: #c4a057; stroke-width: 1; fill: #c4a057; font-size: 11px; }
+.plan-svg .hidden-layer, .apartment-plan .hidden-layer { display: none; }
 
 @media print {
   body { background: #fff; color: #000; }

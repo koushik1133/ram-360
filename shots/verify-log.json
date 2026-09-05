@@ -1,0 +1,7 @@
+{
+  "failures": [
+    "console: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "url": "http://127.0.0.1:3001"
+}

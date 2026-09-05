@@ -1,0 +1,103 @@
+<svg class="apartment-plan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 805 902.5999999999999" width="805" height="902.5999999999999">
+  <style>
+    .shell{fill:#f4f1e9;stroke:#2b2924;stroke-width:10}
+    .room{stroke:#2f2c28;stroke-width:3.5;cursor:pointer;pointer-events:all}
+    .room:hover,.room.selected{stroke:#c4a057;stroke-width:7}
+    .service{stroke:#2f2c28;stroke-width:3;pointer-events:none}
+    .label{fill:#2b2924;font:700 13px Inter,Arial,sans-serif;text-anchor:middle;pointer-events:none}
+    .dim{fill:#6a6358;font:600 11px Inter,Arial,sans-serif;text-anchor:middle;pointer-events:none}
+    .head{fill:#1e3a5f;font:700 22px Inter,Arial,sans-serif}
+    .sub{fill:#6a6358;font:600 12px Inter,Arial,sans-serif}
+    .north{fill:#c4a057;font:700 14px Inter,Arial,sans-serif;text-anchor:middle}
+    .fur{pointer-events:none}
+    .hidden-layer{display:none}
+  </style>
+  <rect width="805" height="902.5999999999999" fill="#f7f3ea"/>
+  <rect x="24" y="16" width="8" height="28" fill="#8eb9cc"/>
+  <text class="head" x="42" y="38">UNIT PLAN  ·  1265 SFT</text>
+  <text class="sub" x="42" y="56">Type 1 / 2 · 3 BHK + 2T  ·  EAST FACING  ·  TAP A ROOM TO ENTER 360°</text>
+  <rect class="shell" x="62" y="62" width="681" height="742.5999999999999" rx="2"/>
+  <rect class="room" id="space-sitout" data-room="balcony" data-space="sitout" x="270" y="70" width="465" height="100" fill="#8a6840"/>
+      <text class="label" x="502.5" y="114">SIT-OUT</text>
+  <rect class="room" id="space-bed2" data-room="bedroom" data-space="bed2" x="70" y="170" width="200" height="200" fill="#efece4"/>
+      <text class="label" x="170" y="264">BEDROOM 2</text>
+  <rect class="room" id="space-drawing" data-room="living" data-space="drawing" x="270" y="170" width="210" height="220" fill="#f3f0e8"/>
+      <text class="label" x="375" y="274">DRAWING ROOM</text>
+  <rect class="room" id="space-dining" data-room="dining" data-space="dining" x="491.59999999999997" y="170" width="243.4" height="220" fill="#f3f0e8"/>
+      <text class="label" x="613.3" y="274">DINING</text>
+  <rect class="service" id="space-t2" x="70" y="390" width="130" height="130" fill="#e4e0da"/>
+      <text class="label" x="135" y="449">C. TOILET</text>
+  <rect class="service" id="space-passage" x="270" y="390" width="210" height="160" fill="#f6f3ec"/>
+      <text class="label" x="375" y="464">PASSAGE</text>
+  <rect class="room" id="space-kitchen" data-room="kitchen" data-space="kitchen" x="560" y="390" width="175" height="160" fill="#eeebe3"/>
+      <text class="label" x="647.5" y="464">KITCHEN</text>
+  <rect class="service" id="space-utility" x="480" y="390" width="80" height="160" fill="#e7e3dc"/>
+      <text class="label" x="520" y="464">UTILITY</text>
+  <rect class="room" id="space-bed3" data-room="bedroom" data-space="bed3" x="70" y="550" width="163.4" height="200" fill="#efece4"/>
+      <text class="label" x="151.7" y="644">STUDY / BEDROOM 3</text>
+  <rect class="service" id="space-t1" x="270" y="626.5999999999999" width="100" height="170" fill="#e4e0da"/>
+      <text class="label" x="320" y="705.5999999999999">TOILET 1</text>
+  <rect class="service" id="space-foyer" x="370" y="550" width="146.59999999999997" height="246.6" fill="#f6f3ec"/>
+      <text class="label" x="443.29999999999995" y="667.3">FOYER</text>
+  <rect class="room" id="space-master" data-room="bedroom" data-space="master" x="516.5999999999999" y="550" width="218.4" height="246.6" fill="#efece4"/>
+      <text class="label" x="625.8" y="667.3">MASTER BEDROOM</text>
+  <g id="furniture"><rect x="278" y="76" width="28" height="88" rx="4" fill="#d7b07a" stroke="#5c4324" stroke-width="1.2"/>
+      <rect x="699" y="76" width="28" height="88" rx="4" fill="#d7b07a" stroke="#5c4324" stroke-width="1.2"/>
+  <rect x="82" y="246" width="72" height="48" rx="5" fill="#e8eef4" stroke="#5a6570" stroke-width="1.1"/>
+      <rect x="86" y="242" width="27.36" height="14" rx="4" fill="#f4f1ea"/>
+      <rect x="114.8" y="242" width="27.36" height="14" rx="4" fill="#f4f1ea"/>
+      <rect x="84" y="276" width="68" height="10" rx="2" fill="#c4a057" opacity="0.75"/>
+      <rect x="254" y="178" width="10" height="184" rx="1" fill="#8a6d45"/>
+      <rect x="256" y="182" width="2" height="176" fill="#5c4a2e"/>
+  <rect x="278" y="182" width="84" height="22" rx="5" fill="#cfc6b4" stroke="#6a6254" stroke-width="1.1"/>
+      <rect x="278" y="206" width="22" height="168" rx="5" fill="#cfc6b4" stroke="#6a6254" stroke-width="1.1"/>
+      <rect x="306" y="210" width="28" height="20" rx="3" fill="#b7aa94"/>
+      <rect x="460" y="256" width="8" height="48" rx="1" fill="#3a3530"/>
+  <rect x="575.3" y="262" width="76" height="36" rx="3" fill="#c4a46a" stroke="#5c4a2a" stroke-width="1.2"/>
+      <circle cx="585.3" cy="254" r="5" fill="#d8c4a0"/><circle cx="641.3" cy="254" r="5" fill="#d8c4a0"/>
+      <circle cx="585.3" cy="306" r="5" fill="#d8c4a0"/><circle cx="641.3" cy="306" r="5" fill="#d8c4a0"/>
+  <circle cx="84" cy="406" r="7" fill="none" stroke="#6a6660" stroke-width="1.4"/>
+      <rect x="178" y="502" width="14" height="10" rx="2" fill="none" stroke="#6a6660" stroke-width="1.4"/>
+  
+  <rect x="564" y="394" width="167" height="14" rx="1" fill="#9aa39a"/>
+      <rect x="719" y="394" width="12" height="152" rx="1" fill="#9aa39a"/>
+  <rect x="484" y="396" width="16" height="12" rx="1" fill="none" stroke="#6a6660" stroke-width="1.3"/>
+  <rect x="82" y="626" width="72" height="48" rx="5" fill="#e8eef4" stroke="#5a6570" stroke-width="1.1"/>
+      <rect x="86" y="622" width="27.36" height="14" rx="4" fill="#f4f1ea"/>
+      <rect x="114.8" y="622" width="27.36" height="14" rx="4" fill="#f4f1ea"/>
+      <rect x="84" y="656" width="68" height="10" rx="2" fill="#c4a057" opacity="0.75"/>
+      <rect x="217.4" y="558" width="10" height="184" rx="1" fill="#8a6d45"/>
+      <rect x="219.4" y="562" width="2" height="176" fill="#5c4a2e"/>
+  <circle cx="284" cy="642.5999999999999" r="7" fill="none" stroke="#6a6660" stroke-width="1.4"/>
+      <rect x="348" y="778.5999999999999" width="14" height="10" rx="2" fill="none" stroke="#6a6660" stroke-width="1.4"/>
+  
+  <rect x="528.5999999999999" y="649.3" width="72" height="48" rx="5" fill="#e8eef4" stroke="#5a6570" stroke-width="1.1"/>
+      <rect x="532.5999999999999" y="645.3" width="27.36" height="14" rx="4" fill="#f4f1ea"/>
+      <rect x="561.3999999999999" y="645.3" width="27.36" height="14" rx="4" fill="#f4f1ea"/>
+      <rect x="530.5999999999999" y="679.3" width="68" height="10" rx="2" fill="#c4a057" opacity="0.75"/>
+      <rect x="718.9999999999999" y="558" width="10" height="230.6" rx="1" fill="#8a6d45"/>
+      <rect x="720.9999999999999" y="562" width="2" height="222.6" fill="#5c4a2e"/></g>
+  <g id="dimensions"><text class="dim" x="502.5" y="132">23'3" × 5'0"</text>
+  <text class="dim" x="170" y="282">10'0" × 10'0"</text>
+  <text class="dim" x="375" y="292">10'6" × 11'0"</text>
+  <text class="dim" x="613.3" y="292">12'2" × 11'0"</text>
+  <text class="dim" x="135" y="467">6'6" × 6'6"</text>
+  <text class="dim" x="375" y="482">10'6" × 8'0"</text>
+  <text class="dim" x="647.5" y="482">8'9" × 8'0"</text>
+  <text class="dim" x="520" y="482">4'0" × 8'0"</text>
+  <text class="dim" x="151.7" y="662">8'2" × 10'0"</text>
+  <text class="dim" x="320" y="723.5999999999999">5'0" × 8'6"</text>
+  <text class="dim" x="443.29999999999995" y="685.3">7'4" × 12'4"</text>
+  <text class="dim" x="625.8" y="685.3">10'11" × 12'4"</text></g>
+  <g id="vastu" class="hidden-layer" opacity="0.22">
+    <rect x="70" y="70" width="332.5" height="363.29999999999995" fill="#38bdf8"/>
+    <rect x="402.5" y="70" width="332.5" height="363.29999999999995" fill="#c084fc"/>
+    <rect x="70" y="433.29999999999995" width="332.5" height="363.29999999999995" fill="#a3e635"/>
+    <rect x="402.5" y="433.29999999999995" width="332.5" height="363.29999999999995" fill="#fb923c"/>
+  </g>
+  <g transform="translate(735,854.5999999999999)">
+    <circle r="18" fill="#1e3a5f"/><path d="M0 -12 L6 6 L0 2 L-6 6 Z" fill="#c4a057"/>
+    <text class="north" y="32">N</text>
+  </g>
+  <text class="sub" x="402.5" y="888.5999999999999" text-anchor="middle">RAMKY ONE ORION  ·  1265 SFT  ·  Type 1 / 2 · 3 BHK + 2T</text>
+</svg>

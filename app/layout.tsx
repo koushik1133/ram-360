@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'NAVIGO Web · Ramky One Genext',
-  description: 'Interactive real estate sales tool. Explore. Experience. Decide.',
+  title: 'Orion 360 · Ramky One Orion Buyer Digital Twin',
+  description: 'Explore your tower, floor, apartment, rooms, construction progress and interior estimate.',
 };
 
 export const viewport: Viewport = {

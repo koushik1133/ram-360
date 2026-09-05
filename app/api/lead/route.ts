@@ -1,32 +1,35 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { z } from 'zod';
 
 export const runtime = 'nodejs';
 
-interface LeadPayload {
-  name: string;
-  phone: string;
-  email: string;
-  unit?: string;
-  message?: string;
-  engagement?: { totalSeconds: number; perModuleSeconds: Record<string, number> };
-}
+const leadSchema = z.object({
+  name: z.string().trim().min(2).max(100),
+  phone: z.string().trim().min(8).max(24).refine((value) => value.replace(/\D/g, '').length >= 8, 'Invalid phone'),
+  email: z.string().trim().email().max(254),
+  unit: z.string().trim().max(30).optional(),
+  message: z.string().trim().max(1_000).optional(),
+  engagement: z.object({
+    totalSeconds: z.number().nonnegative().max(86_400),
+    perModuleSeconds: z.record(z.string(), z.number().nonnegative().max(86_400)),
+  }).optional(),
+});
 
 export async function POST(req: Request) {
-  let body: LeadPayload;
+  let json: unknown;
   try {
-    body = (await req.json()) as LeadPayload;
+    json = await req.json();
   } catch {
     return NextResponse.json({ ok: false, error: 'Invalid JSON' }, { status: 400 });
   }
-  const name = body.name?.trim();
-  const phone = body.phone?.trim();
-  const email = body.email?.trim();
-  if (!name || !phone || !email || !/^\S+@\S+\.\S+$/.test(email) || phone.replace(/\D/g, '').length < 8) {
+  const parsed = leadSchema.safeParse(json);
+  if (!parsed.success) {
     return NextResponse.json({ ok: false, error: 'Please provide a valid name, phone and email.' }, { status: 422 });
   }
 
-  const lead = { name, phone, email, unit: body.unit ?? null, message: body.message ?? null, engagement: body.engagement ?? null, source: 'navigo-web' };
+  const body = parsed.data;
+  const lead = { name: body.name, phone: body.phone, email: body.email, unit: body.unit ?? null, message: body.message ?? null, engagement: body.engagement ?? null, source: 'orion-360' };
 
   // 1) Persist to Supabase if configured
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -50,6 +53,6 @@ export async function POST(req: Request) {
     }
   }
 
-  console.info('[lead] received', lead);
+  console.info('[lead] received', { unit: lead.unit, source: lead.source });
   return NextResponse.json({ ok: true });
 }

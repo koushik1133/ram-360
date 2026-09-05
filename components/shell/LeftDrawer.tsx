@@ -2,6 +2,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAppStore } from '@/store/useAppStore';
 import { project, CATEGORIES, CATEGORY_ICON, STATUS_COLOR } from '@/lib/data';
+import { SFT_COLOR, UNIT_SQFTS } from '@/lib/palette';
 import type { PoiCategory } from '@/lib/types';
 
 function LocationFilters() {
@@ -42,8 +43,8 @@ function TowerFilters() {
   const selectedTower = useAppStore((s) => s.selectedTower);
   const selectTower = useAppStore((s) => s.selectTower);
   const statuses = useAppStore((s) => s.statuses);
-  const bhk = useAppStore((s) => s.bhkFilter);
-  const setBhk = useAppStore((s) => s.setBhkFilter);
+  const sqftFilter = useAppStore((s) => s.sqftFilter);
+  const setSqftFilter = useAppStore((s) => s.setSqftFilter);
   const statusFilter = useAppStore((s) => s.statusFilter);
   const setStatusFilter = useAppStore((s) => s.setStatusFilter);
 
@@ -65,16 +66,19 @@ function TowerFilters() {
                 <span className="text-[13px] font-semibold tracking-wide">{t.name}</span>
                 <span className={`text-[10px] uppercase tracking-[0.18em] ${active ? 'text-neutral-600' : 'text-neutral-400'}`}>{t.status}</span>
               </div>
-              <div className={`mt-1 text-[11px] ${active ? 'text-neutral-700' : 'text-neutral-400'}`}>G–{t.floors} · {t.units} units · <span className={active ? 'font-semibold' : 'text-ring'}>{avail} available</span></div>
+              <div className={`mt-1 text-[11px] ${active ? 'text-neutral-700' : 'text-neutral-400'}`}>G–{t.floors} · {t.shape === 'bar' ? 'Linear plate' : 'Cross plate'} · <span className={active ? 'font-semibold' : 'text-ring'}>{avail} available</span></div>
             </button>
           );
         })}
       </div>
       <div>
-        <p className="mb-2 text-[10px] uppercase tracking-[0.25em] text-neutral-500">Configuration</p>
+        <p className="mb-2 text-[10px] uppercase tracking-[0.25em] text-neutral-500">Saleable area</p>
         <div className="flex flex-wrap gap-1.5">
-          {[null, 2, 3, 4].map((b) => (
-            <button key={String(b)} onClick={() => setBhk(b)} className={`rounded-full px-3 py-1.5 text-[11px] font-semibold tracking-wider transition ${bhk === b ? 'bg-white text-black' : 'bg-white/10 text-neutral-300 hover:bg-white/20'}`}>{b ? `${b} BHK` : 'ALL'}</button>
+          <button onClick={() => setSqftFilter(null)} className={`rounded-full px-3 py-1.5 text-[11px] font-semibold tracking-wider transition ${sqftFilter === null ? 'bg-white text-black' : 'bg-white/10 text-neutral-300 hover:bg-white/20'}`}>All SFT</button>
+          {UNIT_SQFTS.map((sqft) => (
+            <button key={sqft} onClick={() => setSqftFilter(sqftFilter === sqft ? null : sqft)} className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold tracking-wider transition ${sqftFilter === sqft ? 'bg-white text-black' : 'bg-white/10 text-neutral-300 hover:bg-white/20'}`}>
+              <span className="h-2 w-2 rounded-[2px]" style={{ background: SFT_COLOR[sqft] }} />{sqft}
+            </button>
           ))}
         </div>
       </div>

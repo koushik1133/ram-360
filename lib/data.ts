@@ -24,7 +24,7 @@ export const assetUrl = (path: string) => {
 };
 
 export const STATUS_COLOR: Record<string, string> = {
-  available: '#22C55E',
-  sold: '#EF4444',
-  reserved: '#EAB308',
+  available: '#3d8f62',
+  sold: '#a34b42',
+  reserved: '#c49a3a',
 };

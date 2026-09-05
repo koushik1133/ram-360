@@ -1,4 +1,4 @@
--- NAVIGO Web clone · Supabase schema
+-- Orion 360 buyer portal · Supabase schema
 -- Run in the SQL editor of your Supabase project (or `supabase db push`).
 
 create type flat_status as enum ('available', 'sold', 'reserved');

@@ -2,7 +2,7 @@
  * Lightweight engagement tracker. Records time spent per module and key events.
  * Swap `emit` for Mixpanel / GA / Segment in production.
  */
-type EventName = 'module_view' | 'tower_selected' | 'floor_selected' | 'flat_selected' | 'tour_entered' | 'room_changed' | 'lead_submitted' | 'poi_selected' | 'amenity_opened';
+type EventName = 'module_view' | 'tower_selected' | 'floor_selected' | 'flat_selected' | 'tour_entered' | 'room_changed' | 'lead_submitted' | 'poi_selected' | 'amenity_opened' | 'construction_phase_changed' | 'finish_tier_changed';
 
 const sessionStart = typeof performance !== 'undefined' ? performance.now() : 0;
 const moduleTime: Record<string, number> = {};

@@ -1,6 +1,6 @@
 'use client';
 import { create } from 'zustand';
-import type { ModuleId, FlatStatus, PoiCategory, RoomId } from '@/lib/types';
+import type { ModuleId, FlatStatus, PoiCategory, RoomId, ConstructionPhase, FinishTier } from '@/lib/types';
 import { project } from '@/lib/data';
 import { analytics } from '@/lib/analytics';
 
@@ -21,13 +21,17 @@ interface AppState {
   selectFloor: (floor: number | null) => void;
   selectFlat: (id: string | null) => void;
   setHoveredTower: (id: string | null) => void;
+  constructionPhase: ConstructionPhase;
+  setConstructionPhase: (phase: ConstructionPhase) => void;
 
   // Inventory filters
   search: string;
   bhkFilter: number | null;
+  sqftFilter: number | null;
   statusFilter: FlatStatus | null;
   setSearch: (s: string) => void;
   setBhkFilter: (b: number | null) => void;
+  setSqftFilter: (s: number | null) => void;
   setStatusFilter: (s: FlatStatus | null) => void;
 
   // Live statuses (Supabase realtime overrides mock data)
@@ -50,6 +54,11 @@ interface AppState {
   // Tour
   room: RoomId;
   setRoom: (r: RoomId) => void;
+  /** exact unit-plan space being toured, e.g. 'master' | 'bed2' | 'kitchen' */
+  spaceKey: string | null;
+  setSpace: (key: string, room: RoomId) => void;
+  finishTier: FinishTier;
+  setFinishTier: (tier: FinishTier) => void;
   leadOpen: boolean;
   setLeadOpen: (v: boolean) => void;
 }
@@ -92,12 +101,19 @@ export const useAppStore = create<AppState>((set, get) => ({
     } else set({ selectedFlatId: null });
   },
   setHoveredTower: (id) => set({ hoveredTower: id }),
+  constructionPhase: 'complete',
+  setConstructionPhase: (constructionPhase) => {
+    analytics.track('construction_phase_changed', { phase: constructionPhase });
+    set({ constructionPhase });
+  },
 
   search: '',
   bhkFilter: null,
+  sqftFilter: null,
   statusFilter: null,
   setSearch: (search) => set({ search }),
   setBhkFilter: (bhkFilter) => set({ bhkFilter }),
+  setSqftFilter: (sqftFilter) => set({ sqftFilter }),
   setStatusFilter: (statusFilter) => set({ statusFilter }),
 
   statuses: initialStatuses,
@@ -123,7 +139,17 @@ export const useAppStore = create<AppState>((set, get) => ({
   room: 'living',
   setRoom: (room) => {
     analytics.track('room_changed', { room });
-    set({ room });
+    set({ room, spaceKey: null });
+  },
+  spaceKey: null,
+  setSpace: (spaceKey, room) => {
+    analytics.track('room_changed', { room, space: spaceKey });
+    set({ spaceKey, room });
+  },
+  finishTier: 'signature',
+  setFinishTier: (finishTier) => {
+    analytics.track('finish_tier_changed', { tier: finishTier });
+    set({ finishTier });
   },
   leadOpen: false,
   setLeadOpen: (leadOpen) => set({ leadOpen }),

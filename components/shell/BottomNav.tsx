@@ -9,6 +9,7 @@ const PILLS: { id: ModuleId; label: string }[] = [
   { id: 'amenities', label: 'AMENITIES' },
   { id: 'towers', label: 'TOWERS' },
   { id: 'plans', label: 'PLANS' },
+  { id: 'cost', label: 'INTERIOR COST' },
 ];
 
 export default function BottomNav() {

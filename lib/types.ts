@@ -1,7 +1,11 @@
-export type ModuleId = 'master' | 'location' | 'amenities' | 'towers' | 'plans' | 'tour';
+export type ModuleId = 'master' | 'location' | 'amenities' | 'towers' | 'plans' | 'tour' | 'cost';
 export type FlatStatus = 'available' | 'sold' | 'reserved';
 export type PoiCategory = 'Schools' | 'Hospitals' | 'Transport' | 'Malls' | 'Roads';
 export type RoomId = 'living' | 'dining' | 'bedroom' | 'kitchen' | 'balcony';
+export type ConstructionPhase = 'foundation' | 'pillars' | 'structure' | 'facade' | 'complete';
+export type FinishTier = 'essential' | 'signature' | 'luxury';
+
+export type TowerShape = 'bar' | 'cross';
 
 export interface Tower {
   id: string;
@@ -15,6 +19,8 @@ export interface Tower {
   height: number;
   tint: string;
   status: string;
+  /** Linear bar (A, F) or cross plate (B–E), matching the printed master layout. */
+  shape: TowerShape;
 }
 
 export interface Flat {

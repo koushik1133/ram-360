@@ -1,6 +1,7 @@
 'use client';
 import { useAppStore } from '@/store/useAppStore';
 import { project, floorLabel, STATUS_COLOR } from '@/lib/data';
+import { SFT_COLOR, SFT_LABEL } from '@/lib/palette';
 
 const FACING_DEG: Record<string, number> = { North: 0, East: 90, South: 180, West: 270 };
 
@@ -21,7 +22,10 @@ export default function FlatSpecs() {
         <h3 className="mt-1 text-2xl font-semibold tracking-tight">{flat.id}</h3>
         <div className="mt-2 flex items-center gap-2">
           <span className="flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em]" style={{ background: `${STATUS_COLOR[status]}22`, color: STATUS_COLOR[status] }}><span className="h-2 w-2 rounded-full" style={{ background: STATUS_COLOR[status] }} />{status}</span>
-          <span className="rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-bold tracking-[0.18em]">{flat.bhk} BHK</span>
+          <span className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-bold tracking-[0.14em]">
+            <span className="h-2 w-2 rounded-[2px]" style={{ background: SFT_COLOR[flat.sqft] }} />
+            {SFT_LABEL[flat.sqft] ?? `${flat.sqft} SFT`}
+          </span>
         </div>
       </div>
       <div className="flex-1 space-y-4 overflow-y-auto px-5 pb-5">
@@ -31,9 +35,9 @@ export default function FlatSpecs() {
           <div className="text-[11px] text-neutral-600">≈ ₹{Math.round((flat.priceValue * 1e7) / flat.sqft).toLocaleString('en-IN')} per sqft · registration extra</div>
         </div>
         <div className="grid grid-cols-2 gap-2">
-          <Spec label="Carpet area" value={`${flat.sqft} sqft`} />
-          <Spec label="Configuration" value={`${flat.bhk} BHK + ${flat.bhk >= 3 ? 'Study' : 'Utility'}`} />
-          <Spec label="Facing" value={flat.facing} icon={<svg width="18" height="18" viewBox="0 0 24 24" style={{ transform: `rotate(${FACING_DEG[flat.facing]}deg)` }} fill="none" stroke="#3B82F6" strokeWidth="2.5"><path d="M12 3l5 9h-3v9h-4v-9H7z" /></svg>} />
+          <Spec label="Saleable area" value={`${flat.sqft} SFT`} />
+          <Spec label="Configuration" value={flat.sqft >= 1585 ? '3 BHK + 3T' : '3 BHK + 2T'} />
+          <Spec label="Facing" value={flat.facing} icon={<svg width="18" height="18" viewBox="0 0 24 24" style={{ transform: `rotate(${FACING_DEG[flat.facing]}deg)` }} fill="none" stroke="#c4a057" strokeWidth="2.5"><path d="M12 3l5 9h-3v9h-4v-9H7z" /></svg>} />
           <Spec label="Vastu" value={flat.vastu} />
           <Spec label="Natural light" value={flat.naturalLight} />
           <Spec label="Floor" value={flat.floor === 0 ? 'Ground' : `${flat.floor} of ${tower.floors}`} />

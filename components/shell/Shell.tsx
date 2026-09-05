@@ -15,6 +15,7 @@ const LocationMap = dynamic(() => import('@/components/modules/LocationMap'), { 
 const AmenityViewer = dynamic(() => import('@/components/modules/AmenityViewer'), { ssr: false, loading: () => <Shimmer label="Loading amenities" /> });
 const FloorPlanViewer = dynamic(() => import('@/components/modules/FloorPlanViewer'), { ssr: false, loading: () => <Shimmer label="Loading floor plan" /> });
 const VirtualTour = dynamic(() => import('@/components/modules/VirtualTour'), { ssr: false, loading: () => <Shimmer label="Entering the home" /> });
+const CostEngine = dynamic(() => import('@/components/modules/CostEngine'), { ssr: false, loading: () => <Shimmer label="Calculating your interior plan" /> });
 
 const fade = { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 }, transition: { duration: 0.35, ease: 'easeOut' } };
 
@@ -27,10 +28,13 @@ export default function Shell() {
     <div className="relative h-[100dvh] w-full overflow-hidden bg-ink">
       {/* Viewport */}
       <div className="absolute inset-0">
-        {/* 3D canvas stays mounted across MASTER PLAN + TOWERS so camera state persists */}
-        <div className={`absolute inset-0 transition-opacity duration-500 ${is3D ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
-          <MasterPlanCanvas />
-        </div>
+        {/* Keep one WebGL renderer active: preserve the canvas across MASTER/TOWERS,
+            but release it before plans, cost, maps, amenities, or panoramas mount. */}
+        {is3D && (
+          <div className="absolute inset-0">
+            <MasterPlanCanvas />
+          </div>
+        )}
         <AnimatePresence initial={false}>
           {module === 'location' && (
             <motion.div key="location" className="absolute inset-0" {...fade}><LocationMap /></motion.div>
@@ -43,6 +47,9 @@ export default function Shell() {
           )}
           {module === 'tour' && (
             <motion.div key="tour" className="absolute inset-0 z-30" {...fade}><VirtualTour /></motion.div>
+          )}
+          {module === 'cost' && (
+            <motion.div key="cost" className="absolute inset-0" {...fade}><CostEngine /></motion.div>
           )}
         </AnimatePresence>
       </div>

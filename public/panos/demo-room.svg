@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1200" viewBox="0 0 2400 1200">
+  <defs>
+    <linearGradient id="ceiling" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#efe9df"/><stop offset="1" stop-color="#c8beb0"/></linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#b8aa99"/><stop offset=".5" stop-color="#e5ded3"/><stop offset="1" stop-color="#b8aa99"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a48768"/><stop offset="1" stop-color="#554437"/></linearGradient>
+    <radialGradient id="window"><stop stop-color="#fdf7df"/><stop offset=".42" stop-color="#9cc2d2"/><stop offset="1" stop-color="#537080"/></radialGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="16" stdDeviation="18" flood-opacity=".28"/></filter>
+  </defs>
+  <rect width="2400" height="360" fill="url(#ceiling)"/>
+  <rect y="360" width="2400" height="430" fill="url(#wall)"/>
+  <path d="M0 790h2400v410H0z" fill="url(#floor)"/>
+  <path d="M0 790L1200 930 2400 790M400 790l300 410M800 790l130 410M1600 790l-130 410M2000 790l-300 410" fill="none" stroke="#c8a77f" stroke-opacity=".4" stroke-width="5"/>
+  <rect x="920" y="385" width="560" height="330" rx="8" fill="url(#window)" stroke="#f4efe8" stroke-width="28"/>
+  <path d="M1200 390v320M925 550h550" stroke="#f4efe8" stroke-width="18"/>
+  <g filter="url(#shadow)">
+    <path d="M650 740q0-70 70-70h320q70 0 70 70v180H650z" fill="#d9d0c4"/>
+    <path d="M1290 740q0-70 70-70h320q70 0 70 70v180h-460z" fill="#c9b8a4"/>
+    <rect x="1050" y="820" width="300" height="120" rx="16" fill="#715a48"/>
+    <ellipse cx="1200" cy="950" rx="270" ry="70" fill="#d8cab7"/>
+  </g>
+  <g fill="#263a2e">
+    <ellipse cx="430" cy="620" rx="90" ry="130"/><ellipse cx="1970" cy="620" rx="90" ry="130"/>
+  </g>
+  <g fill="#9b7653"><rect x="405" y="690" width="50" height="150"/><rect x="1945" y="690" width="50" height="150"/></g>
+  <g fill="#2b2824"><rect x="170" y="450" width="250" height="18"/><rect x="1980" y="450" width="250" height="18"/></g>
+  <g fill="#d6ad67"><circle cx="1200" cy="170" r="34"/><path d="M1200 0v150" stroke="#473f36" stroke-width="8"/></g>
+  <text x="1200" y="1090" text-anchor="middle" fill="#f4eadc" font-family="Arial,sans-serif" font-size="42" letter-spacing="12">ORION 360 · PLACEHOLDER PANORAMA</text>
+</svg>

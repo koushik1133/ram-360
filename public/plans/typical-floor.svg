@@ -1,149 +1,47 @@
-<svg class="plan-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <style>
-    .flat { fill: #1c1c1c; stroke: #5a5a5a; stroke-width: 2.5; cursor: pointer; }
-    .flat.selected { fill: url(#hatch); stroke: #3b82f6; stroke-width: 4; }
-    .flat-label { fill: #a3a3a3; font: 700 20px Inter, Arial, sans-serif; pointer-events: none; }
-    .fur rect, .fur circle { fill: none; stroke: #6e6e6e; stroke-width: 1.6; }
-    .dims { stroke: #3b82f6; stroke-width: 1.2; fill: #3b82f6; font: 12px Inter, Arial, sans-serif; }
-    .core { fill: #181818; stroke: #5a5a5a; stroke-width: 2; }
-    .hidden-layer { display: none; }
-    .corridor { fill: #232323; }
-    .t { fill: #7a7a7a; font: 700 11px Inter, Arial, sans-serif; text-anchor: middle; }
-  </style>
-  <defs>
-    <pattern id="hatch" width="12" height="12" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
-      <rect width="12" height="12" fill="#3b82f6" fill-opacity="0.2"/><line x1="0" y1="0" x2="0" y2="12" stroke="#3b82f6" stroke-width="3"/>
-    </pattern>
-  </defs>
-  <rect width="1600" height="1000" fill="#0f0f0f"/>
-  <rect class="corridor" x="50" y="440" width="1500" height="120"/>
-  <rect class="flat" id="flat-01" x="50" y="40" width="300" height="400"/>
-  <rect class="flat" id="flat-02" x="350" y="40" width="300" height="400"/>
-  <rect class="flat" id="flat-03" x="650" y="40" width="300" height="400"/>
-  <rect class="flat" id="flat-04" x="950" y="40" width="300" height="400"/>
-  <rect class="flat" id="flat-05" x="1250" y="40" width="300" height="400"/>
-  <rect class="flat" id="flat-06" x="50" y="560" width="300" height="400"/>
-  <rect class="flat" id="flat-07" x="350" y="560" width="300" height="400"/>
-  <rect class="flat" id="flat-08" x="650" y="560" width="300" height="400"/>
-  <rect class="flat" id="flat-09" x="950" y="560" width="300" height="400"/>
-  <rect class="flat" id="flat-10" x="1250" y="560" width="300" height="400"/>
-  <g id="furniture">
-  <g transform="translate(50,40)" class="fur">
-    <rect x="18" y="18" width="120" height="130" rx="3"/><rect x="34" y="30" width="88" height="70" rx="6"/>
-    <rect x="150" y="18" width="132" height="170" rx="3"/><rect x="168" y="120" width="96" height="34" rx="8"/><circle cx="215" cy="70" r="18"/>
-    <rect x="18" y="160" width="120" height="100" rx="3"/><rect x="24" y="166" width="108" height="18"/>
-    <rect x="150" y="200" width="132" height="70" rx="3"/><rect x="180" y="215" width="72" height="36" rx="4"/>
-    <rect x="18" y="272" width="60" height="60" rx="3"/><circle cx="48" cy="302" r="10"/>
-    <rect x="18" y="345" width="264" height="40" rx="3" stroke-dasharray="6 4"/>
-  </g>
-  <g transform="translate(350,40)" class="fur">
-    <rect x="18" y="18" width="120" height="130" rx="3"/><rect x="34" y="30" width="88" height="70" rx="6"/>
-    <rect x="150" y="18" width="132" height="170" rx="3"/><rect x="168" y="120" width="96" height="34" rx="8"/><circle cx="215" cy="70" r="18"/>
-    <rect x="18" y="160" width="120" height="100" rx="3"/><rect x="24" y="166" width="108" height="18"/>
-    <rect x="150" y="200" width="132" height="70" rx="3"/><rect x="180" y="215" width="72" height="36" rx="4"/>
-    <rect x="18" y="272" width="60" height="60" rx="3"/><circle cx="48" cy="302" r="10"/>
-    <rect x="18" y="345" width="264" height="40" rx="3" stroke-dasharray="6 4"/>
-  </g>
-  <g transform="translate(650,40)" class="fur">
-    <rect x="18" y="18" width="120" height="130" rx="3"/><rect x="34" y="30" width="88" height="70" rx="6"/>
-    <rect x="150" y="18" width="132" height="170" rx="3"/><rect x="168" y="120" width="96" height="34" rx="8"/><circle cx="215" cy="70" r="18"/>
-    <rect x="18" y="160" width="120" height="100" rx="3"/><rect x="24" y="166" width="108" height="18"/>
-    <rect x="150" y="200" width="132" height="70" rx="3"/><rect x="180" y="215" width="72" height="36" rx="4"/>
-    <rect x="18" y="272" width="60" height="60" rx="3"/><circle cx="48" cy="302" r="10"/>
-    <rect x="18" y="345" width="264" height="40" rx="3" stroke-dasharray="6 4"/>
-  </g>
-  <g transform="translate(950,40)" class="fur">
-    <rect x="18" y="18" width="120" height="130" rx="3"/><rect x="34" y="30" width="88" height="70" rx="6"/>
-    <rect x="150" y="18" width="132" height="170" rx="3"/><rect x="168" y="120" width="96" height="34" rx="8"/><circle cx="215" cy="70" r="18"/>
-    <rect x="18" y="160" width="120" height="100" rx="3"/><rect x="24" y="166" width="108" height="18"/>
-    <rect x="150" y="200" width="132" height="70" rx="3"/><rect x="180" y="215" width="72" height="36" rx="4"/>
-    <rect x="18" y="272" width="60" height="60" rx="3"/><circle cx="48" cy="302" r="10"/>
-    <rect x="18" y="345" width="264" height="40" rx="3" stroke-dasharray="6 4"/>
-  </g>
-  <g transform="translate(1250,40)" class="fur">
-    <rect x="18" y="18" width="120" height="130" rx="3"/><rect x="34" y="30" width="88" height="70" rx="6"/>
-    <rect x="150" y="18" width="132" height="170" rx="3"/><rect x="168" y="120" width="96" height="34" rx="8"/><circle cx="215" cy="70" r="18"/>
-    <rect x="18" y="160" width="120" height="100" rx="3"/><rect x="24" y="166" width="108" height="18"/>
-    <rect x="150" y="200" width="132" height="70" rx="3"/><rect x="180" y="215" width="72" height="36" rx="4"/>
-    <rect x="18" y="272" width="60" height="60" rx="3"/><circle cx="48" cy="302" r="10"/>
-    <rect x="18" y="345" width="264" height="40" rx="3" stroke-dasharray="6 4"/>
-  </g>
-  <g transform="translate(50,560)" class="fur">
-    <rect x="18" y="252" width="120" height="130" rx="3"/><rect x="34" y="300" width="88" height="70" rx="6"/>
-    <rect x="150" y="212" width="132" height="170" rx="3"/><rect x="168" y="246" width="96" height="34" rx="8"/><circle cx="215" cy="330" r="18"/>
-    <rect x="18" y="140" width="120" height="100" rx="3"/><rect x="24" y="216" width="108" height="18"/>
-    <rect x="150" y="130" width="132" height="70" rx="3"/><rect x="180" y="149" width="72" height="36" rx="4"/>
-    <rect x="18" y="68" width="60" height="60" rx="3"/><circle cx="48" cy="98" r="10"/>
-    <rect x="18" y="15" width="264" height="40" rx="3" stroke-dasharray="6 4"/>
-  </g>
-  <g transform="translate(350,560)" class="fur">
-    <rect x="18" y="252" width="120" height="130" rx="3"/><rect x="34" y="300" width="88" height="70" rx="6"/>
-    <rect x="150" y="212" width="132" height="170" rx="3"/><rect x="168" y="246" width="96" height="34" rx="8"/><circle cx="215" cy="330" r="18"/>
-    <rect x="18" y="140" width="120" height="100" rx="3"/><rect x="24" y="216" width="108" height="18"/>
-    <rect x="150" y="130" width="132" height="70" rx="3"/><rect x="180" y="149" width="72" height="36" rx="4"/>
-    <rect x="18" y="68" width="60" height="60" rx="3"/><circle cx="48" cy="98" r="10"/>
-    <rect x="18" y="15" width="264" height="40" rx="3" stroke-dasharray="6 4"/>
-  </g>
-  <g transform="translate(650,560)" class="fur">
-    <rect x="18" y="252" width="120" height="130" rx="3"/><rect x="34" y="300" width="88" height="70" rx="6"/>
-    <rect x="150" y="212" width="132" height="170" rx="3"/><rect x="168" y="246" width="96" height="34" rx="8"/><circle cx="215" cy="330" r="18"/>
-    <rect x="18" y="140" width="120" height="100" rx="3"/><rect x="24" y="216" width="108" height="18"/>
-    <rect x="150" y="130" width="132" height="70" rx="3"/><rect x="180" y="149" width="72" height="36" rx="4"/>
-    <rect x="18" y="68" width="60" height="60" rx="3"/><circle cx="48" cy="98" r="10"/>
-    <rect x="18" y="15" width="264" height="40" rx="3" stroke-dasharray="6 4"/>
-  </g>
-  <g transform="translate(950,560)" class="fur">
-    <rect x="18" y="252" width="120" height="130" rx="3"/><rect x="34" y="300" width="88" height="70" rx="6"/>
-    <rect x="150" y="212" width="132" height="170" rx="3"/><rect x="168" y="246" width="96" height="34" rx="8"/><circle cx="215" cy="330" r="18"/>
-    <rect x="18" y="140" width="120" height="100" rx="3"/><rect x="24" y="216" width="108" height="18"/>
-    <rect x="150" y="130" width="132" height="70" rx="3"/><rect x="180" y="149" width="72" height="36" rx="4"/>
-    <rect x="18" y="68" width="60" height="60" rx="3"/><circle cx="48" cy="98" r="10"/>
-    <rect x="18" y="15" width="264" height="40" rx="3" stroke-dasharray="6 4"/>
-  </g>
-  <g transform="translate(1250,560)" class="fur">
-    <rect x="18" y="252" width="120" height="130" rx="3"/><rect x="34" y="300" width="88" height="70" rx="6"/>
-    <rect x="150" y="212" width="132" height="170" rx="3"/><rect x="168" y="246" width="96" height="34" rx="8"/><circle cx="215" cy="330" r="18"/>
-    <rect x="18" y="140" width="120" height="100" rx="3"/><rect x="24" y="216" width="108" height="18"/>
-    <rect x="150" y="130" width="132" height="70" rx="3"/><rect x="180" y="149" width="72" height="36" rx="4"/>
-    <rect x="18" y="68" width="60" height="60" rx="3"/><circle cx="48" cy="98" r="10"/>
-    <rect x="18" y="15" width="264" height="40" rx="3" stroke-dasharray="6 4"/>
-  </g></g>
-  <text class="flat-label" x="64" y="426">01 · 2 BHK · EAST</text>
-  <circle id="status-01" cx="330" cy="420" r="8" fill="#22c55e" stroke="#0f0f0f" stroke-width="2"/>
-  <text class="flat-label" x="364" y="426">02 · 3 BHK · EAST</text>
-  <circle id="status-02" cx="630" cy="420" r="8" fill="#22c55e" stroke="#0f0f0f" stroke-width="2"/>
-  <text class="flat-label" x="664" y="426">03 · 2 BHK · EAST</text>
-  <circle id="status-03" cx="930" cy="420" r="8" fill="#22c55e" stroke="#0f0f0f" stroke-width="2"/>
-  <text class="flat-label" x="964" y="426">04 · 3 BHK · EAST</text>
-  <circle id="status-04" cx="1230" cy="420" r="8" fill="#22c55e" stroke="#0f0f0f" stroke-width="2"/>
-  <text class="flat-label" x="1264" y="426">05 · 2 BHK · EAST</text>
-  <circle id="status-05" cx="1530" cy="420" r="8" fill="#22c55e" stroke="#0f0f0f" stroke-width="2"/>
-  <text class="flat-label" x="64" y="590">06 · 3 BHK · WEST</text>
-  <circle id="status-06" cx="330" cy="580" r="8" fill="#22c55e" stroke="#0f0f0f" stroke-width="2"/>
-  <text class="flat-label" x="364" y="590">07 · 2 BHK · WEST</text>
-  <circle id="status-07" cx="630" cy="580" r="8" fill="#22c55e" stroke="#0f0f0f" stroke-width="2"/>
-  <text class="flat-label" x="664" y="590">08 · 3 BHK · WEST</text>
-  <circle id="status-08" cx="930" cy="580" r="8" fill="#22c55e" stroke="#0f0f0f" stroke-width="2"/>
-  <text class="flat-label" x="964" y="590">09 · 2 BHK · WEST</text>
-  <circle id="status-09" cx="1230" cy="580" r="8" fill="#22c55e" stroke="#0f0f0f" stroke-width="2"/>
-  <text class="flat-label" x="1264" y="590">10 · 3 BHK · WEST</text>
-  <circle id="status-10" cx="1530" cy="580" r="8" fill="#22c55e" stroke="#0f0f0f" stroke-width="2"/>
-  <!-- lift + stair cores at both ends -->
-  <g class="core">
-    <rect x="50" y="440" width="120" height="120"/><rect x="60" y="450" width="45" height="45" /><rect x="115" y="450" width="45" height="45"/><path d="M60 510h100M60 522h100M60 534h100M60 546h100"/>
-    <rect x="1430" y="440" width="120" height="120"/><rect x="1440" y="450" width="45" height="45"/><rect x="1495" y="450" width="45" height="45"/><path d="M1440 510h100M1440 522h100M1440 534h100M1440 546h100"/>
-  </g>
-  <text class="t" x="110" y="586">LIFT LOBBY A</text><text class="t" x="1490" y="586">LIFT LOBBY B</text><text class="t" x="800" y="504">CORRIDOR · 2.4 m</text>
-  <g id="dimensions" class="dims">
-    <line x1="50" y1="24" x2="1550" y2="24"/><text x="800" y="18" text-anchor="middle">78.9 m (259')</text>
-    <line x1="24" y1="40" x2="24" y2="960"/><text x="14" y="500" text-anchor="middle" transform="rotate(-90 14 500)">48.8 m (160')</text>
-  </g>
-  <g id="vastu" class="hidden-layer" opacity="0.32">
-    <rect x="950" y="40" width="600" height="400" fill="#38bdf8"/><text x="1250" y="240" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">NE · WATER</text>
-    <rect x="950" y="560" width="600" height="400" fill="#fb923c"/><text x="1250" y="760" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">SE · FIRE</text>
-    <rect x="50" y="560" width="600" height="400" fill="#a3e635"/><text x="350" y="760" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">SW · EARTH</text>
-    <rect x="50" y="40" width="600" height="400" fill="#c084fc"/><text x="350" y="240" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">NW · AIR</text>
-  </g>
-  <g transform="translate(1520,930)"><circle r="24" fill="#0f0f0f" stroke="#3b82f6" stroke-width="1.5"/><path d="M0 -18 L8 7 L0 2 L-8 7 Z" fill="#3b82f6"/><text y="-28" text-anchor="middle" fill="#3b82f6" font-size="12" font-weight="700">N</text></g>
-  <text x="800" y="990" text-anchor="middle" fill="#5a5a5a" font-size="11" letter-spacing="3">RAMKY ONE GENEXT · TYPICAL FLOOR · 10 UNITS · NOT TO SCALE</text>
+<svg class="plan-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1100" width="2000" height="1100">
+  <rect width="2000" height="1100" fill="#f3efe6"/>
+  <rect x="190" y="480" width="1620" height="140" fill="#d9d3c7"/>
+  <rect x="70" y="70" width="120" height="960" fill="#c6bfb2"/>
+  <rect x="1810" y="70" width="120" height="960" fill="#c6bfb2"/>
+  <rect class="flat" id="flat-01" x="193" y="73" width="347.4342739160358" height="404" fill="#e08a4a" stroke="#2b2924" stroke-width="3"/>
+      <text class="flat-label" x="206" y="432" fill="#2b2924">01</text>
+      <text class="flat-label" x="206" y="456" fill="#5a5348" font-size="14">3 BHK · 1585 SFT</text>
+      <circle id="status-01" cx="521.4342739160359" cy="458" r="8" fill="#3d8f62" stroke="#fff" stroke-width="2"/>
+  <rect class="flat" id="flat-02" x="546.4342739160359" y="73" width="309.5264969029594" height="404" fill="#e4d3b0" stroke="#2b2924" stroke-width="3"/>
+      <text class="flat-label" x="559.4342739160359" y="432" fill="#2b2924">02</text>
+      <text class="flat-label" x="559.4342739160359" y="456" fill="#5a5348" font-size="14">3 BHK · 1415 SFT</text>
+      <circle id="status-02" cx="836.9607708189953" cy="458" r="8" fill="#3d8f62" stroke="#fff" stroke-width="2"/>
+  <rect class="flat" id="flat-03" x="861.9607708189953" y="73" width="276.0784583620096" height="404" fill="#8eb9cc" stroke="#2b2924" stroke-width="3"/>
+      <text class="flat-label" x="874.9607708189953" y="432" fill="#2b2924">03</text>
+      <text class="flat-label" x="874.9607708189953" y="456" fill="#5a5348" font-size="14">3 BHK · 1265 SFT</text>
+      <circle id="status-03" cx="1119.0392291810049" cy="458" r="8" fill="#3d8f62" stroke="#fff" stroke-width="2"/>
+  <rect class="flat" id="flat-04" x="1144.0392291810049" y="73" width="309.5264969029594" height="404" fill="#e4d3b0" stroke="#2b2924" stroke-width="3"/>
+      <text class="flat-label" x="1157.0392291810049" y="432" fill="#2b2924">04</text>
+      <text class="flat-label" x="1157.0392291810049" y="456" fill="#5a5348" font-size="14">3 BHK · 1415 SFT</text>
+      <circle id="status-04" cx="1434.5657260839644" cy="458" r="8" fill="#3d8f62" stroke="#fff" stroke-width="2"/>
+  <rect class="flat" id="flat-05" x="1459.5657260839644" y="73" width="347.4342739160358" height="404" fill="#e08a4a" stroke="#2b2924" stroke-width="3"/>
+      <text class="flat-label" x="1472.5657260839644" y="432" fill="#2b2924">05</text>
+      <text class="flat-label" x="1472.5657260839644" y="456" fill="#5a5348" font-size="14">3 BHK · 1585 SFT</text>
+      <circle id="status-05" cx="1788.0000000000002" cy="458" r="8" fill="#3d8f62" stroke="#fff" stroke-width="2"/>
+  <rect class="flat" id="flat-06" x="193" y="623" width="347.4342739160358" height="404" fill="#e08a4a" stroke="#2b2924" stroke-width="3"/>
+      <text class="flat-label" x="206" y="656" fill="#2b2924">06</text>
+      <text class="flat-label" x="206" y="678" fill="#5a5348" font-size="14">3 BHK · 1585 SFT</text>
+      <circle id="status-06" cx="521.4342739160359" cy="642" r="8" fill="#3d8f62" stroke="#fff" stroke-width="2"/>
+  <rect class="flat" id="flat-07" x="546.4342739160359" y="623" width="309.5264969029594" height="404" fill="#e4d3b0" stroke="#2b2924" stroke-width="3"/>
+      <text class="flat-label" x="559.4342739160359" y="656" fill="#2b2924">07</text>
+      <text class="flat-label" x="559.4342739160359" y="678" fill="#5a5348" font-size="14">3 BHK · 1415 SFT</text>
+      <circle id="status-07" cx="836.9607708189953" cy="642" r="8" fill="#3d8f62" stroke="#fff" stroke-width="2"/>
+  <rect class="flat" id="flat-08" x="861.9607708189953" y="623" width="276.0784583620096" height="404" fill="#8eb9cc" stroke="#2b2924" stroke-width="3"/>
+      <text class="flat-label" x="874.9607708189953" y="656" fill="#2b2924">08</text>
+      <text class="flat-label" x="874.9607708189953" y="678" fill="#5a5348" font-size="14">3 BHK · 1265 SFT</text>
+      <circle id="status-08" cx="1119.0392291810049" cy="642" r="8" fill="#3d8f62" stroke="#fff" stroke-width="2"/>
+  <rect class="flat" id="flat-09" x="1144.0392291810049" y="623" width="309.5264969029594" height="404" fill="#e4d3b0" stroke="#2b2924" stroke-width="3"/>
+      <text class="flat-label" x="1157.0392291810049" y="656" fill="#2b2924">09</text>
+      <text class="flat-label" x="1157.0392291810049" y="678" fill="#5a5348" font-size="14">3 BHK · 1415 SFT</text>
+      <circle id="status-09" cx="1434.5657260839644" cy="642" r="8" fill="#3d8f62" stroke="#fff" stroke-width="2"/>
+  <rect class="flat" id="flat-10" x="1459.5657260839644" y="623" width="400.9511355815554" height="404" fill="#c9a227" stroke="#2b2924" stroke-width="3"/>
+      <text class="flat-label" x="1472.5657260839644" y="656" fill="#2b2924">10</text>
+      <text class="flat-label" x="1472.5657260839644" y="678" fill="#5a5348" font-size="14">3 BHK · 1825 SFT</text>
+      <circle id="status-10" cx="1841.5168616655196" cy="642" r="8" fill="#3d8f62" stroke="#fff" stroke-width="2"/>
+  <text x="1000" y="1076" text-anchor="middle" fill="#6a6358" font-size="16" font-family="Inter,Arial">TYPICAL FLOOR · UNITS COLOURED BY SFT</text>
 </svg>

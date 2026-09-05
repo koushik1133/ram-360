@@ -18,6 +18,11 @@ export default function TopBar({ realtime }: { realtime: 'live' | 'demo' | 'conn
   const clock = useSessionClock();
   const module = useAppStore((s) => s.module);
   const [fs, setFs] = useState(false);
+  useEffect(() => {
+    const sync = () => setFs(Boolean(document.fullscreenElement));
+    document.addEventListener('fullscreenchange', sync);
+    return () => document.removeEventListener('fullscreenchange', sync);
+  }, []);
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) document.documentElement.requestFullscreen?.().then(() => setFs(true)).catch(() => {});
@@ -34,8 +39,8 @@ export default function TopBar({ realtime }: { realtime: 'live' | 'demo' | 'conn
           </svg>
         </div>
         <div className="leading-none">
-          <div className="text-[15px] font-bold tracking-[0.28em]">NAVIGO</div>
-          <div className="mt-1 whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-neutral-400">Web · by Qubit</div>
+          <div className="text-[15px] font-bold tracking-[0.24em]">ORION 360</div>
+          <div className="mt-1 whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-neutral-400">Buyer digital twin</div>
         </div>
       </div>
 
